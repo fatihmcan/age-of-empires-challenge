@@ -1,0 +1,45 @@
+<div class="container">
+
+  <!--  Ages-->
+  <div class="row mt-4 mb-5">
+    <h4> <span class="badge bg-secondary">Ages</span></h4>
+    <div class="input-group mb-3">
+
+      <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+        <ng-container *ngFor="let item of ageFilterItems">
+          <input type="radio" (click)="addFilter('age',item.type, 'ages')" class="btn-check" name="ageFilter" id="{{item.name}}"
+                 [checked]="item.active">
+          <label class="btn btn-outline-primary" for="{{item.name}}">{{item.name}}</label>
+        </ng-container>
+
+      </div>
+    </div>
+  </div>
+
+  <!--  Costs-->
+  <h4> <span class="badge bg-secondary">Costs</span></h4>
+  <ng-container *ngFor="let item of costFilterItems; let i = index">
+    <div class="row">
+      <div class="col-md-1">
+        <div class="form-check">
+          <input class="form-check-input" (change)="item.active ? addFilter('cost', item.name, 'costs') : removeFilter(item.name)" [checked]="item.active" [(ngModel)]="item.active" type="checkbox" value=""
+                 id='{{i}}'>
+          <label class="form-check-label" for="{{item.name}}">
+            {{item.name}}
+          </label>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <input [disabled]="!item.active" type="range" min="0" max="200" (ngModelChange)="addFilter(item.name ,$event, 'range')"
+               [(ngModel)]="item.range" class="form-range" id="wood_range">
+      </div>
+      <div class="col-md-1">{{item.range}}</div>
+    </div>
+  </ng-container>
+
+
+  <div class="row mt-5">
+
+    <app-table [tBody]="filteredUnit"></app-table>
+  </div>
+</div>

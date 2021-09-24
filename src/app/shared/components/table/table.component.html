@@ -1,0 +1,22 @@
+Unit items : {{tBody?.length}}
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th *ngFor="let item of tHead" scope="col">{{item}}</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of tBody">
+    <th scope="row">{{item.id}}</th>
+    <td>{{item.name}}</td>
+    <td>{{item.age}}</td>
+    <td>Detail</td>
+    <td>
+      <span *ngIf="item.cost?.Gold">Gold : {{item.cost?.Gold}} </span>
+      <span *ngIf="item.cost?.Food">Food : {{item.cost?.Food}} </span>
+      <span *ngIf="item.cost?.Wood">Wood : {{item.cost?.Wood}} </span>
+    </td>
+    <td><a href="units/detail/{{item.id}}">Detail</a> </td>
+  </tr>
+  </tbody>
+</table>

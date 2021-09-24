@@ -5,7 +5,7 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
+    "strict": false,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
@@ -19,12 +19,23 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@shared": ["src/app/shared/index.ts"],
+      "@shared/components": ["src/app/shared/components/index.ts"],
+      "@shared/models": ["src/app/shared/models/index.ts"],
+      "@shared/services": ["src/app/shared/services/index.ts"],
+      "@store/actions": ["src/app/store/actions/index.ts"],
+      "@store/models": ["src/app/store/models/index.ts"],
+      "@store/states": ["src/app/store/states/index.ts"],
+      "@store/resolvers": ["src/app/store/resolvers/index.ts"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": false,
+    "strictPropertyInitialization": false
   }
 }

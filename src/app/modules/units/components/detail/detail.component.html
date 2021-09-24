@@ -1,0 +1,21 @@
+<div class="container ">
+
+  <div class="row justify-content-center mt-5">
+    <div class="col-6">
+      <ul class="list-group">
+        <li class="list-group-item">ID : {{unit?.id}}</li>
+        <li class="list-group-item">Name : {{unit?.name}}</li>
+        <li class="list-group-item">Description : {{unit?.description}}</li>
+        <li *ngIf="unit?.cost?.Wood" class="list-group-item">Wood : {{unit?.cost?.Wood}}</li>
+        <li *ngIf="unit?.cost?.Food" class="list-group-item">Food: {{unit?.cost?.Food}}</li>
+        <li *ngIf="unit?.cost?.Gold" class="list-group-item">Gold : {{unit?.cost?.Gold}}</li>
+        <li class="list-group-item">Build Time : {{unit?.build_time}}</li>
+        <li class="list-group-item">Reload Time : {{unit?.reload_time}}</li>
+        <li class="list-group-item">Hit Points : {{unit?.hit_points}}</li>
+        <li class="list-group-item">Attack : {{unit?.attack}}</li>
+        <li class="list-group-item">Accurancy : {{unit?.accuracy}}</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
